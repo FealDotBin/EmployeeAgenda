@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AgendaSearchServiceService WSDL service -->
+
+  <service name="AgendaSearchService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.example.com"/>
+      <parameter name="wsdlServiceElement" value="AgendaSearchServiceService"/>
+      <parameter name="schemaQualified" value="http://ws.example.com"/>
+      <parameter name="wsdlServicePort" value="AgendaSearchService"/>
+      <parameter name="className" value="com.example.ws.AgendaSearchServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="AgendaSearchService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="searchEmployee" qname="operNS:searchEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:searchEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:anyType" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="EmployeeNotFound" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFound" type="tns:EmployeeNotFound" xmlns:tns="http://ws.example.com"/>
+      </operation>
+      <parameter name="allowedMethods" value="searchEmployee"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.example.com"
+        qname="ns:EmployeeNotFound"
+        type="java:com.example.ws.EmployeeNotFound"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

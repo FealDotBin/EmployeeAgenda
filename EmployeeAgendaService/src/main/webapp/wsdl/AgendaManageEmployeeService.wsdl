@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.example.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.example.com" xmlns:intf="http://ws.example.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.example.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+      <element name="surname" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="telephoneNumber" type="xsd:string"/>
+      <element name="department" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertEmployeeResponse">
+    <complexType/>
+   </element>
+   <complexType name="EmployeeAlreadyPresent">
+    <sequence/>
+   </complexType>
+   <element name="fault" type="impl:EmployeeAlreadyPresent"/>
+   <element name="deleteEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteEmployeeResponse">
+    <complexType/>
+   </element>
+   <complexType name="EmployeeNotFound">
+    <sequence/>
+   </complexType>
+   <element name="fault1" type="impl:EmployeeNotFound"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteEmployeeResponse">
+
+      <wsdl:part element="impl:deleteEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteEmployeeRequest">
+
+      <wsdl:part element="impl:deleteEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertEmployeeRequest">
+
+      <wsdl:part element="impl:insertEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="EmployeeNotFound">
+
+      <wsdl:part element="impl:fault1" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertEmployeeResponse">
+
+      <wsdl:part element="impl:insertEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="EmployeeAlreadyPresent">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="AgendaManageEmployeeService">
+
+      <wsdl:operation name="insertEmployee">
+
+         <wsdl:input message="impl:insertEmployeeRequest" name="insertEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertEmployeeResponse" name="insertEmployeeResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmployeeAlreadyPresent" name="EmployeeAlreadyPresent">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteEmployee">
+
+         <wsdl:input message="impl:deleteEmployeeRequest" name="deleteEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteEmployeeResponse" name="deleteEmployeeResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmployeeNotFound" name="EmployeeNotFound">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AgendaManageEmployeeServiceSoapBinding" type="impl:AgendaManageEmployeeService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmployeeAlreadyPresent">
+
+            <wsdlsoap:fault name="EmployeeAlreadyPresent" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmployeeNotFound">
+
+            <wsdlsoap:fault name="EmployeeNotFound" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AgendaManageEmployeeServiceService">
+
+      <wsdl:port binding="impl:AgendaManageEmployeeServiceSoapBinding" name="AgendaManageEmployeeService">
+
+         <wsdlsoap:address location="http://localhost:8080/EmployeeAgendaService/services/AgendaManageEmployeeService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

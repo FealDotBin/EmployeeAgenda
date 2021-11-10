@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.example.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.example.com" xmlns:intf="http://ws.example.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.example.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertTelephoneNumber">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="telephoneNumber" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertTelephoneNumberResponse">
+    <complexType>
+     <sequence>
+      <element name="insertTelephoneNumberReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="EmptyStringException">
+    <sequence/>
+   </complexType>
+   <element name="fault" type="impl:EmptyStringException"/>
+   <complexType name="EmployeeNotFoundException">
+    <sequence/>
+   </complexType>
+   <element name="fault1" type="impl:EmployeeNotFoundException"/>
+   <complexType name="TelephoneNumberAlreadyPresentException">
+    <sequence/>
+   </complexType>
+   <element name="fault2" type="impl:TelephoneNumberAlreadyPresentException"/>
+   <element name="deleteTelephoneNumber">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="telephoneNumber" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteTelephoneNumberResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteTelephoneNumberReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="TelephoneNumberNotFoundException">
+    <sequence/>
+   </complexType>
+   <element name="fault3" type="impl:TelephoneNumberNotFoundException"/>
+   <element name="searchEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="searchEmployeeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+      <element name="surname" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="department" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="updateEmployeeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+      <element name="surname" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="telephoneNumber" type="xsd:string"/>
+      <element name="department" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="insertEmployeeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="EmployeeAlreadyPresentException">
+    <sequence/>
+   </complexType>
+   <element name="fault4" type="impl:EmployeeAlreadyPresentException"/>
+   <element name="deleteEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteEmployeeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="TelephoneNumberAlreadyPresentException">
+
+      <wsdl:part element="impl:fault2" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteEmployeeResponse">
+
+      <wsdl:part element="impl:deleteEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="EmployeeAlreadyPresentException">
+
+      <wsdl:part element="impl:fault4" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteEmployeeRequest">
+
+      <wsdl:part element="impl:deleteEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchEmployeeResponse">
+
+      <wsdl:part element="impl:searchEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertEmployeeRequest">
+
+      <wsdl:part element="impl:insertEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertTelephoneNumberRequest">
+
+      <wsdl:part element="impl:insertTelephoneNumber" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateEmployeeRequest">
+
+      <wsdl:part element="impl:updateEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateEmployeeResponse">
+
+      <wsdl:part element="impl:updateEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="TelephoneNumberNotFoundException">
+
+      <wsdl:part element="impl:fault3" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="EmployeeNotFoundException">
+
+      <wsdl:part element="impl:fault1" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="EmptyStringException">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchEmployeeRequest">
+
+      <wsdl:part element="impl:searchEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteTelephoneNumberResponse">
+
+      <wsdl:part element="impl:deleteTelephoneNumberResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertTelephoneNumberResponse">
+
+      <wsdl:part element="impl:insertTelephoneNumberResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertEmployeeResponse">
+
+      <wsdl:part element="impl:insertEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteTelephoneNumberRequest">
+
+      <wsdl:part element="impl:deleteTelephoneNumber" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="AgendaService">
+
+      <wsdl:operation name="insertTelephoneNumber">
+
+         <wsdl:input message="impl:insertTelephoneNumberRequest" name="insertTelephoneNumberRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertTelephoneNumberResponse" name="insertTelephoneNumberResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:TelephoneNumberAlreadyPresentException" name="TelephoneNumberAlreadyPresentException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteTelephoneNumber">
+
+         <wsdl:input message="impl:deleteTelephoneNumberRequest" name="deleteTelephoneNumberRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteTelephoneNumberResponse" name="deleteTelephoneNumberResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:TelephoneNumberNotFoundException" name="TelephoneNumberNotFoundException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchEmployee">
+
+         <wsdl:input message="impl:searchEmployeeRequest" name="searchEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchEmployeeResponse" name="searchEmployeeResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateEmployee">
+
+         <wsdl:input message="impl:updateEmployeeRequest" name="updateEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateEmployeeResponse" name="updateEmployeeResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertEmployee">
+
+         <wsdl:input message="impl:insertEmployeeRequest" name="insertEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertEmployeeResponse" name="insertEmployeeResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeAlreadyPresentException" name="EmployeeAlreadyPresentException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteEmployee">
+
+         <wsdl:input message="impl:deleteEmployeeRequest" name="deleteEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteEmployeeResponse" name="deleteEmployeeResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AgendaServiceSoapBinding" type="impl:AgendaService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertTelephoneNumber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertTelephoneNumberRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertTelephoneNumberResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmptyStringException">
+
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="TelephoneNumberAlreadyPresentException">
+
+            <wsdlsoap:fault name="TelephoneNumberAlreadyPresentException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteTelephoneNumber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteTelephoneNumberRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteTelephoneNumberResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmptyStringException">
+
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="TelephoneNumberNotFoundException">
+
+            <wsdlsoap:fault name="TelephoneNumberNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmptyStringException">
+
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmptyStringException">
+
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeAlreadyPresentException">
+
+            <wsdlsoap:fault name="EmployeeAlreadyPresentException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmptyStringException">
+
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AgendaServiceService">
+
+      <wsdl:port binding="impl:AgendaServiceSoapBinding" name="AgendaService">
+
+         <wsdlsoap:address location="http://localhost:8080/EmployeeAgendaService/services/AgendaService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
