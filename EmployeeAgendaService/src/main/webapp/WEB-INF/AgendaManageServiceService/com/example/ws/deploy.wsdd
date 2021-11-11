@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
-  <!-- Services from AgendaServiceService WSDL service -->
+  <!-- Services from AgendaManageServiceService WSDL service -->
 
-  <service name="AgendaService" provider="java:RPC" style="wrapped" use="literal">
+  <service name="AgendaManageService" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://ws.example.com"/>
-      <parameter name="wsdlServiceElement" value="AgendaServiceService"/>
+      <parameter name="wsdlServiceElement" value="AgendaManageServiceService"/>
       <parameter name="schemaQualified" value="http://ws.example.com"/>
-      <parameter name="wsdlServicePort" value="AgendaService"/>
-      <parameter name="className" value="com.example.ws.AgendaService"/>
-      <parameter name="wsdlPortType" value="AgendaService"/>
+      <parameter name="wsdlServicePort" value="AgendaManageService"/>
+      <parameter name="className" value="com.example.ws.AgendaManageService"/>
+      <parameter name="wsdlPortType" value="AgendaManageService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
       <operation xmlns:operNS="http://ws.example.com" xmlns:retNS="http://ws.example.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="insertEmployee" qname="operNS:insertEmployee" returnQName="retNS:insertEmployeeReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://ws.example.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
@@ -19,11 +19,6 @@
         <parameter xmlns:pns="http://ws.example.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:department" type="tns:string"/>
         <fault xmlns:fns="http://ws.example.com" xmlns:tns="http://ws.example.com" name="EmptyStringException" qname="fns:fault1" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException"/>
         <fault xmlns:fns="http://ws.example.com" xmlns:tns="http://ws.example.com" name="EmployeeAlreadyPresentException" qname="fns:fault" class="com.example.ws.EmployeeAlreadyPresentException" type="tns:EmployeeAlreadyPresentException"/>
-      </operation>
-      <operation xmlns:operNS="http://ws.example.com" xmlns:retNS="http://ws.example.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchEmployee" qname="operNS:searchEmployee" returnQName="retNS:searchEmployeeReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://ws.example.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
-        <fault xmlns:fns="http://ws.example.com" xmlns:tns="http://ws.example.com" name="EmptyStringException" qname="fns:fault1" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException"/>
-        <fault xmlns:fns="http://ws.example.com" xmlns:tns="http://ws.example.com" name="EmployeeNotFoundException" qname="fns:fault2" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException"/>
       </operation>
       <operation xmlns:operNS="http://ws.example.com" xmlns:retNS="http://ws.example.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateEmployee" qname="operNS:updateEmployee" returnQName="retNS:updateEmployeeReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://ws.example.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
@@ -54,7 +49,7 @@
         <fault xmlns:fns="http://ws.example.com" xmlns:tns="http://ws.example.com" name="TelephoneNumberAlreadyPresentException" qname="fns:fault5" class="com.example.ws.TelephoneNumberAlreadyPresentException" type="tns:TelephoneNumberAlreadyPresentException"/>
         <fault xmlns:fns="http://ws.example.com" xmlns:tns="http://ws.example.com" name="EmployeeNotFoundException" qname="fns:fault2" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException"/>
       </operation>
-      <parameter name="allowedMethods" value="insertEmployee updateEmployee insertTelephoneNumber searchEmployee deleteEmployee deleteTelephoneNumber"/>
+      <parameter name="allowedMethods" value="insertEmployee updateEmployee insertTelephoneNumber deleteEmployee deleteTelephoneNumber"/>
 
       <typeMapping xmlns:ns="http://ws.example.com" qname="ns:TelephoneNumberAlreadyPresentException" type="java:com.example.ws.TelephoneNumberAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
       <typeMapping xmlns:ns="http://ws.example.com" qname="ns:EmployeeAlreadyPresentException" type="java:com.example.ws.EmployeeAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>

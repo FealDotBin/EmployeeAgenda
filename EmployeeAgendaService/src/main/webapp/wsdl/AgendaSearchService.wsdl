@@ -14,16 +14,28 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="searchEmployeeResponse">
     <complexType>
      <sequence>
-      <element name="searchEmployeeReturn" type="xsd:anyType"/>
+      <element name="searchEmployeeReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <complexType name="EmployeeNotFound">
+   <complexType name="EmployeeNotFoundException">
     <sequence/>
    </complexType>
-   <element name="fault" type="impl:EmployeeNotFound"/>
+   <element name="fault" type="impl:EmployeeNotFoundException"/>
+   <complexType name="EmptyStringException">
+    <sequence/>
+   </complexType>
+   <element name="fault1" type="impl:EmptyStringException"/>
   </schema>
  </wsdl:types>
+
+   <wsdl:message name="EmptyStringException">
+
+      <wsdl:part element="impl:fault1" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
 
    <wsdl:message name="searchEmployeeRequest">
 
@@ -41,7 +53,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="EmployeeNotFound">
+   <wsdl:message name="EmployeeNotFoundException">
 
       <wsdl:part element="impl:fault" name="fault">
 
@@ -61,7 +73,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
        </wsdl:output>
 
-         <wsdl:fault message="impl:EmployeeNotFound" name="EmployeeNotFound">
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
 
        </wsdl:fault>
 
@@ -89,9 +105,15 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          </wsdl:output>
 
-         <wsdl:fault name="EmployeeNotFound">
+         <wsdl:fault name="EmptyStringException">
 
-            <wsdlsoap:fault name="EmployeeNotFound" use="literal"/>
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
 
          </wsdl:fault>
 

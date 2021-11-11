@@ -31,24 +31,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <sequence/>
    </complexType>
    <element name="fault1" type="impl:EmptyStringException"/>
-   <element name="searchEmployee">
-    <complexType>
-     <sequence>
-      <element name="id" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="searchEmployeeResponse">
-    <complexType>
-     <sequence>
-      <element name="searchEmployeeReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <complexType name="EmployeeNotFoundException">
-    <sequence/>
-   </complexType>
-   <element name="fault2" type="impl:EmployeeNotFoundException"/>
    <element name="updateEmployee">
     <complexType>
      <sequence>
@@ -67,6 +49,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <complexType name="EmployeeNotFoundException">
+    <sequence/>
+   </complexType>
+   <element name="fault2" type="impl:EmployeeNotFoundException"/>
    <element name="deleteEmployee">
     <complexType>
      <sequence>
@@ -158,14 +144,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="searchEmployeeResponse">
-
-      <wsdl:part element="impl:searchEmployeeResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="insertEmployeeRequest">
 
       <wsdl:part element="impl:insertEmployee" name="parameters">
@@ -230,14 +208,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="searchEmployeeRequest">
-
-      <wsdl:part element="impl:searchEmployee" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="deleteTelephoneNumberResponse">
 
       <wsdl:part element="impl:deleteTelephoneNumberResponse" name="parameters">
@@ -270,7 +240,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:portType name="AgendaService">
+   <wsdl:portType name="AgendaManageService">
 
       <wsdl:operation name="insertEmployee">
 
@@ -287,26 +257,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:fault>
 
          <wsdl:fault message="impl:EmployeeAlreadyPresentException" name="EmployeeAlreadyPresentException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="searchEmployee">
-
-         <wsdl:input message="impl:searchEmployeeRequest" name="searchEmployeeRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:searchEmployeeResponse" name="searchEmployeeResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
-
-       </wsdl:fault>
-
-         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
 
        </wsdl:fault>
 
@@ -406,7 +356,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:portType>
 
-   <wsdl:binding name="AgendaServiceSoapBinding" type="impl:AgendaService">
+   <wsdl:binding name="AgendaManageServiceSoapBinding" type="impl:AgendaManageService">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
@@ -435,36 +385,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          <wsdl:fault name="EmployeeAlreadyPresentException">
 
             <wsdlsoap:fault name="EmployeeAlreadyPresentException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="searchEmployee">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="searchEmployeeRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="searchEmployeeResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="EmptyStringException">
-
-            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
-
-         </wsdl:fault>
-
-         <wsdl:fault name="EmployeeNotFoundException">
-
-            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
 
          </wsdl:fault>
 
@@ -610,11 +530,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:binding>
 
-   <wsdl:service name="AgendaServiceService">
+   <wsdl:service name="AgendaManageServiceService">
 
-      <wsdl:port binding="impl:AgendaServiceSoapBinding" name="AgendaService">
+      <wsdl:port binding="impl:AgendaManageServiceSoapBinding" name="AgendaManageService">
 
-         <wsdlsoap:address location="http://localhost:8080/EmployeeAgendaService/services/AgendaService"/>
+         <wsdlsoap:address location="http://localhost:8080/EmployeeAgendaService/services/AgendaManageService"/>
 
       </wsdl:port>
 

@@ -20,16 +20,25 @@
       <parameter name="className" value="com.example.ws.AgendaSearchServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="AgendaSearchService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="searchEmployee" qname="operNS:searchEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:searchEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:anyType" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="searchEmployee" qname="operNS:searchEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:searchEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="EmployeeNotFound" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFound" type="tns:EmployeeNotFound" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmptyStringException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmployeeNotFoundException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
       </operation>
       <parameter name="allowedMethods" value="searchEmployee"/>
 
       <typeMapping
         xmlns:ns="http://ws.example.com"
-        qname="ns:EmployeeNotFound"
-        type="java:com.example.ws.EmployeeNotFound"
+        qname="ns:EmptyStringException"
+        type="java:com.example.ws.EmptyStringException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.example.com"
+        qname="ns:EmployeeNotFoundException"
+        type="java:com.example.ws.EmployeeNotFoundException"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""

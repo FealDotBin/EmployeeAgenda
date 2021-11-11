@@ -22,6 +22,23 @@
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AgendaSearchService" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="searchEmployee" qname="ns1:searchEmployee" returnQName="ns1:searchEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:id" type="xsd:string"/>
+   <ns2:fault class="com.example.ws.EmptyStringException" qname="ns1:fault1" type="ns1:EmptyStringException"/>
+   <ns2:fault class="com.example.ws.EmployeeNotFoundException" qname="ns1:fault" type="ns1:EmployeeNotFoundException"/>
+  </ns2:operation>
+  <ns1:parameter name="allowedMethods" value="searchEmployee"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="AgendaSearchService"/>
+  <ns1:parameter name="className" value="com.example.ws.AgendaSearchService"/>
+  <ns1:parameter name="wsdlServicePort" value="AgendaSearchService"/>
+  <ns1:parameter name="schemaQualified" value="http://ws.example.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ws.example.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="AgendaSearchServiceService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:EmptyStringException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmptyStringException" xmlns:ns2="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:EmployeeNotFoundException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmployeeNotFoundException" xmlns:ns3="http://ws.example.com"/>
+ </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
@@ -32,27 +49,7 @@
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
- <ns1:service name="AgendaService" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="deleteTelephoneNumber" qname="ns1:deleteTelephoneNumber" returnQName="ns1:deleteTelephoneNumberReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:id" type="xsd:string"/>
-   <ns2:parameter qname="ns1:telephoneNumber" type="xsd:string"/>
-   <ns2:fault class="com.example.ws.EmptyStringException" qname="ns1:fault" type="ns1:EmptyStringException"/>
-   <ns2:fault class="com.example.ws.TelephoneNumberCannotBeDeletedException" qname="ns1:fault3" type="ns1:TelephoneNumberCannotBeDeletedException"/>
-   <ns2:fault class="com.example.ws.TelephoneNumberNotFoundException" qname="ns1:fault1" type="ns1:TelephoneNumberNotFoundException"/>
-   <ns2:fault class="com.example.ws.EmployeeNotFoundException" qname="ns1:fault2" type="ns1:EmployeeNotFoundException"/>
-  </ns2:operation>
-  <ns1:operation name="insertTelephoneNumber" qname="ns2:insertTelephoneNumber" returnQName="ns2:insertTelephoneNumberReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:id" type="xsd:string"/>
-   <ns1:parameter qname="ns2:telephoneNumber" type="xsd:string"/>
-   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns2:fault" type="ns2:EmptyStringException"/>
-   <ns1:fault class="com.example.ws.TelephoneNumberAlreadyPresentException" qname="ns2:fault4" type="ns2:TelephoneNumberAlreadyPresentException"/>
-   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns2:fault2" type="ns2:EmployeeNotFoundException"/>
-  </ns1:operation>
-  <ns1:operation name="searchEmployee" qname="ns3:searchEmployee" returnQName="ns3:searchEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:id" type="xsd:string"/>
-   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns3:fault" type="ns3:EmptyStringException"/>
-   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns3:fault2" type="ns3:EmployeeNotFoundException"/>
-  </ns1:operation>
+ <ns1:service name="AgendaManageService" provider="java:RPC" style="wrapped" use="literal">
   <ns1:operation name="insertEmployee" qname="ns4:insertEmployee" returnQName="ns4:insertEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns4:id" type="xsd:string"/>
    <ns1:parameter qname="ns4:name" type="xsd:string"/>
@@ -60,37 +57,112 @@
    <ns1:parameter qname="ns4:email" type="xsd:string"/>
    <ns1:parameter qname="ns4:telephoneNumber" type="xsd:string"/>
    <ns1:parameter qname="ns4:department" type="xsd:string"/>
-   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns4:fault" type="ns4:EmptyStringException"/>
-   <ns1:fault class="com.example.ws.EmployeeAlreadyPresentException" qname="ns4:fault5" type="ns4:EmployeeAlreadyPresentException"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns4:fault1" type="ns4:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.EmployeeAlreadyPresentException" qname="ns4:fault" type="ns4:EmployeeAlreadyPresentException"/>
   </ns1:operation>
-  <ns1:operation name="deleteEmployee" qname="ns5:deleteEmployee" returnQName="ns5:deleteEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="updateEmployee" qname="ns5:updateEmployee" returnQName="ns5:updateEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns5:id" type="xsd:string"/>
-   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns5:fault" type="ns5:EmptyStringException"/>
+   <ns1:parameter qname="ns5:name" type="xsd:string"/>
+   <ns1:parameter qname="ns5:surname" type="xsd:string"/>
+   <ns1:parameter qname="ns5:email" type="xsd:string"/>
+   <ns1:parameter qname="ns5:department" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns5:fault1" type="ns5:EmptyStringException"/>
    <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns5:fault2" type="ns5:EmployeeNotFoundException"/>
   </ns1:operation>
-  <ns1:operation name="updateEmployee" qname="ns6:updateEmployee" returnQName="ns6:updateEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="deleteEmployee" qname="ns6:deleteEmployee" returnQName="ns6:deleteEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns6:id" type="xsd:string"/>
-   <ns1:parameter qname="ns6:name" type="xsd:string"/>
-   <ns1:parameter qname="ns6:surname" type="xsd:string"/>
-   <ns1:parameter qname="ns6:email" type="xsd:string"/>
-   <ns1:parameter qname="ns6:department" type="xsd:string"/>
-   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns6:fault" type="ns6:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns6:fault1" type="ns6:EmptyStringException"/>
    <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns6:fault2" type="ns6:EmployeeNotFoundException"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="insertEmployee updateEmployee insertTelephoneNumber deleteTelephoneNumber searchEmployee deleteEmployee"/>
+  <ns1:operation name="deleteTelephoneNumber" qname="ns7:deleteTelephoneNumber" returnQName="ns7:deleteTelephoneNumberReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:id" type="xsd:string"/>
+   <ns1:parameter qname="ns7:telephoneNumber" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns7:fault1" type="ns7:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.TelephoneNumberCannotBeDeletedException" qname="ns7:fault4" type="ns7:TelephoneNumberCannotBeDeletedException"/>
+   <ns1:fault class="com.example.ws.TelephoneNumberNotFoundException" qname="ns7:fault3" type="ns7:TelephoneNumberNotFoundException"/>
+   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns7:fault2" type="ns7:EmployeeNotFoundException"/>
+  </ns1:operation>
+  <ns1:operation name="insertTelephoneNumber" qname="ns8:insertTelephoneNumber" returnQName="ns8:insertTelephoneNumberReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:id" type="xsd:string"/>
+   <ns1:parameter qname="ns8:telephoneNumber" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns8:fault1" type="ns8:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.TelephoneNumberAlreadyPresentException" qname="ns8:fault5" type="ns8:TelephoneNumberAlreadyPresentException"/>
+   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns8:fault2" type="ns8:EmployeeNotFoundException"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="insertEmployee updateEmployee insertTelephoneNumber deleteEmployee deleteTelephoneNumber"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="AgendaService"/>
-  <ns1:parameter name="className" value="com.example.ws.AgendaService"/>
-  <ns1:parameter name="wsdlServicePort" value="AgendaService"/>
+  <ns1:parameter name="wsdlPortType" value="AgendaManageService"/>
+  <ns1:parameter name="className" value="com.example.ws.AgendaManageService"/>
+  <ns1:parameter name="wsdlServicePort" value="AgendaManageService"/>
   <ns1:parameter name="schemaQualified" value="http://ws.example.com"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ws.example.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="AgendaManageServiceService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:TelephoneNumberAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberAlreadyPresentException" xmlns:ns9="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:EmployeeAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmployeeAlreadyPresentException" xmlns:ns10="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:TelephoneNumberNotFoundException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberNotFoundException" xmlns:ns11="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:EmployeeNotFoundException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmployeeNotFoundException" xmlns:ns12="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns13:EmptyStringException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmptyStringException" xmlns:ns13="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns14:TelephoneNumberCannotBeDeletedException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberCannotBeDeletedException" xmlns:ns14="http://ws.example.com"/>
+ </ns1:service>
+ <ns1:service name="AgendaService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="insertEmployee" qname="ns15:insertEmployee" returnQName="ns15:insertEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns15="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns15:id" type="xsd:string"/>
+   <ns1:parameter qname="ns15:name" type="xsd:string"/>
+   <ns1:parameter qname="ns15:surname" type="xsd:string"/>
+   <ns1:parameter qname="ns15:email" type="xsd:string"/>
+   <ns1:parameter qname="ns15:telephoneNumber" type="xsd:string"/>
+   <ns1:parameter qname="ns15:department" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns15:fault1" type="ns15:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.EmployeeAlreadyPresentException" qname="ns15:fault" type="ns15:EmployeeAlreadyPresentException"/>
+  </ns1:operation>
+  <ns1:operation name="searchEmployee" qname="ns16:searchEmployee" returnQName="ns16:searchEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns16="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns16:id" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns16:fault1" type="ns16:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns16:fault2" type="ns16:EmployeeNotFoundException"/>
+  </ns1:operation>
+  <ns1:operation name="updateEmployee" qname="ns17:updateEmployee" returnQName="ns17:updateEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns17="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns17:id" type="xsd:string"/>
+   <ns1:parameter qname="ns17:name" type="xsd:string"/>
+   <ns1:parameter qname="ns17:surname" type="xsd:string"/>
+   <ns1:parameter qname="ns17:email" type="xsd:string"/>
+   <ns1:parameter qname="ns17:department" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns17:fault1" type="ns17:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns17:fault2" type="ns17:EmployeeNotFoundException"/>
+  </ns1:operation>
+  <ns1:operation name="deleteEmployee" qname="ns18:deleteEmployee" returnQName="ns18:deleteEmployeeReturn" returnType="xsd:string" soapAction="" xmlns:ns18="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns18:id" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns18:fault1" type="ns18:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns18:fault2" type="ns18:EmployeeNotFoundException"/>
+  </ns1:operation>
+  <ns1:operation name="deleteTelephoneNumber" qname="ns19:deleteTelephoneNumber" returnQName="ns19:deleteTelephoneNumberReturn" returnType="xsd:string" soapAction="" xmlns:ns19="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns19:id" type="xsd:string"/>
+   <ns1:parameter qname="ns19:telephoneNumber" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns19:fault1" type="ns19:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.TelephoneNumberCannotBeDeletedException" qname="ns19:fault4" type="ns19:TelephoneNumberCannotBeDeletedException"/>
+   <ns1:fault class="com.example.ws.TelephoneNumberNotFoundException" qname="ns19:fault3" type="ns19:TelephoneNumberNotFoundException"/>
+   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns19:fault2" type="ns19:EmployeeNotFoundException"/>
+  </ns1:operation>
+  <ns1:operation name="insertTelephoneNumber" qname="ns20:insertTelephoneNumber" returnQName="ns20:insertTelephoneNumberReturn" returnType="xsd:string" soapAction="" xmlns:ns20="http://ws.example.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns20:id" type="xsd:string"/>
+   <ns1:parameter qname="ns20:telephoneNumber" type="xsd:string"/>
+   <ns1:fault class="com.example.ws.EmptyStringException" qname="ns20:fault1" type="ns20:EmptyStringException"/>
+   <ns1:fault class="com.example.ws.TelephoneNumberAlreadyPresentException" qname="ns20:fault5" type="ns20:TelephoneNumberAlreadyPresentException"/>
+   <ns1:fault class="com.example.ws.EmployeeNotFoundException" qname="ns20:fault2" type="ns20:EmployeeNotFoundException"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="insertEmployee updateEmployee insertTelephoneNumber searchEmployee deleteEmployee deleteTelephoneNumber"/>
+  <ns1:parameter name="wsdlPortType" value="AgendaService"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://ws.example.com"/>
+  <ns1:parameter name="wsdlServicePort" value="AgendaService"/>
+  <ns1:parameter name="className" value="com.example.ws.AgendaService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ws.example.com"/>
   <ns1:parameter name="wsdlServiceElement" value="AgendaServiceService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:TelephoneNumberAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberAlreadyPresentException" xmlns:ns7="http://ws.example.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:EmployeeAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmployeeAlreadyPresentException" xmlns:ns8="http://ws.example.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:TelephoneNumberNotFoundException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberNotFoundException" xmlns:ns9="http://ws.example.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:EmployeeNotFoundException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmployeeNotFoundException" xmlns:ns10="http://ws.example.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:EmptyStringException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmptyStringException" xmlns:ns11="http://ws.example.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:TelephoneNumberCannotBeDeletedException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberCannotBeDeletedException" xmlns:ns12="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns21:TelephoneNumberAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberAlreadyPresentException" xmlns:ns21="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns22:EmployeeAlreadyPresentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmployeeAlreadyPresentException" xmlns:ns22="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns23:TelephoneNumberNotFoundException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberNotFoundException" xmlns:ns23="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns24:EmployeeNotFoundException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmployeeNotFoundException" xmlns:ns24="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns25:EmptyStringException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.EmptyStringException" xmlns:ns25="http://ws.example.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns26:TelephoneNumberCannotBeDeletedException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.example.ws.TelephoneNumberCannotBeDeletedException" xmlns:ns26="http://ws.example.com"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

@@ -100,12 +100,12 @@ public class Employee {
 	 */
 	public void deleteTelephoneNumber(String telephoneNumber)
 			throws TelephoneNumberNotFoundException, TelephoneNumberCannotBeDeletedException {
-		if (telephoneNumbers.size() == 1) {
-			throw new TelephoneNumberCannotBeDeletedException("At least one telephone number must be present");
-		}
 		int index = telephoneNumbers.indexOf(telephoneNumber);
 		if (index == -1) {
 			throw new TelephoneNumberNotFoundException("Telephone number not found");
+		}
+		if (telephoneNumbers.size() == 1) {
+			throw new TelephoneNumberCannotBeDeletedException("At least one telephone number must be present");
 		}
 		telephoneNumbers.remove(index);
 	}
