@@ -24,37 +24,6 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("insertTelephoneNumber");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "telephoneNumber"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://ws.example.com", "insertTelephoneNumberReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault"),
-                      "com.example.ws.EmptyStringException",
-                      new javax.xml.namespace.QName("http://ws.example.com", "EmptyStringException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault2"),
-                      "com.example.ws.TelephoneNumberAlreadyPresentException",
-                      new javax.xml.namespace.QName("http://ws.example.com", "TelephoneNumberAlreadyPresentException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault1"),
-                      "com.example.ws.EmployeeNotFoundException",
-                      new javax.xml.namespace.QName("http://ws.example.com", "EmployeeNotFoundException"), 
-                      true
-                     ));
-        _operations[0] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteTelephoneNumber");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
@@ -73,12 +42,49 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
                      ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://ws.example.com", "fault3"),
+                      "com.example.ws.TelephoneNumberCannotBeDeletedException",
+                      new javax.xml.namespace.QName("http://ws.example.com", "TelephoneNumberCannotBeDeletedException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault1"),
                       "com.example.ws.TelephoneNumberNotFoundException",
                       new javax.xml.namespace.QName("http://ws.example.com", "TelephoneNumberNotFoundException"), 
                       true
                      ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault1"),
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault2"),
+                      "com.example.ws.EmployeeNotFoundException",
+                      new javax.xml.namespace.QName("http://ws.example.com", "EmployeeNotFoundException"), 
+                      true
+                     ));
+        _operations[0] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("insertTelephoneNumber");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "telephoneNumber"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://ws.example.com", "insertTelephoneNumberReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault"),
+                      "com.example.ws.EmptyStringException",
+                      new javax.xml.namespace.QName("http://ws.example.com", "EmptyStringException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault4"),
+                      "com.example.ws.TelephoneNumberAlreadyPresentException",
+                      new javax.xml.namespace.QName("http://ws.example.com", "TelephoneNumberAlreadyPresentException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault2"),
                       "com.example.ws.EmployeeNotFoundException",
                       new javax.xml.namespace.QName("http://ws.example.com", "EmployeeNotFoundException"), 
                       true
@@ -101,37 +107,12 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
                       true
                      ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault1"),
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault2"),
                       "com.example.ws.EmployeeNotFoundException",
                       new javax.xml.namespace.QName("http://ws.example.com", "EmployeeNotFoundException"), 
                       true
                      ));
         _operations[2] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("updateEmployee");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "name"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "surname"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "email"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "department"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://ws.example.com", "updateEmployeeReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault1"),
-                      "com.example.ws.EmployeeNotFoundException",
-                      new javax.xml.namespace.QName("http://ws.example.com", "EmployeeNotFoundException"), 
-                      true
-                     ));
-        _operations[3] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("insertEmployee");
@@ -159,12 +140,12 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
                       true
                      ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault4"),
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault5"),
                       "com.example.ws.EmployeeAlreadyPresentException",
                       new javax.xml.namespace.QName("http://ws.example.com", "EmployeeAlreadyPresentException"), 
                       true
                      ));
-        _operations[4] = oper;
+        _operations[3] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteEmployee");
@@ -182,7 +163,38 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
                       true
                      ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://ws.example.com", "fault1"),
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault2"),
+                      "com.example.ws.EmployeeNotFoundException",
+                      new javax.xml.namespace.QName("http://ws.example.com", "EmployeeNotFoundException"), 
+                      true
+                     ));
+        _operations[4] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("updateEmployee");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "name"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "surname"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "email"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://ws.example.com", "department"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://ws.example.com", "updateEmployeeReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault"),
+                      "com.example.ws.EmptyStringException",
+                      new javax.xml.namespace.QName("http://ws.example.com", "EmptyStringException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://ws.example.com", "fault2"),
                       "com.example.ws.EmployeeNotFoundException",
                       new javax.xml.namespace.QName("http://ws.example.com", "EmployeeNotFoundException"), 
                       true
@@ -244,6 +256,13 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
             qName = new javax.xml.namespace.QName("http://ws.example.com", "TelephoneNumberAlreadyPresentException");
             cachedSerQNames.add(qName);
             cls = com.example.ws.TelephoneNumberAlreadyPresentException.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://ws.example.com", "TelephoneNumberCannotBeDeletedException");
+            cachedSerQNames.add(qName);
+            cls = com.example.ws.TelephoneNumberCannotBeDeletedException.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -321,12 +340,63 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
         }
     }
 
-    public java.lang.String insertTelephoneNumber(java.lang.String id, java.lang.String telephoneNumber) throws java.rmi.RemoteException, com.example.ws.EmptyStringException, com.example.ws.TelephoneNumberAlreadyPresentException, com.example.ws.EmployeeNotFoundException {
+    public java.lang.String deleteTelephoneNumber(java.lang.String id, java.lang.String telephoneNumber) throws java.rmi.RemoteException, com.example.ws.EmptyStringException, com.example.ws.TelephoneNumberCannotBeDeletedException, com.example.ws.TelephoneNumberNotFoundException, com.example.ws.EmployeeNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[0]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://ws.example.com", "deleteTelephoneNumber"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {id, telephoneNumber});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.example.ws.EmptyStringException) {
+              throw (com.example.ws.EmptyStringException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.example.ws.TelephoneNumberCannotBeDeletedException) {
+              throw (com.example.ws.TelephoneNumberCannotBeDeletedException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.example.ws.TelephoneNumberNotFoundException) {
+              throw (com.example.ws.TelephoneNumberNotFoundException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.example.ws.EmployeeNotFoundException) {
+              throw (com.example.ws.EmployeeNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String insertTelephoneNumber(java.lang.String id, java.lang.String telephoneNumber) throws java.rmi.RemoteException, com.example.ws.EmptyStringException, com.example.ws.TelephoneNumberAlreadyPresentException, com.example.ws.EmployeeNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[1]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -360,54 +430,6 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
          }
         if (axisFaultException.detail instanceof com.example.ws.TelephoneNumberAlreadyPresentException) {
               throw (com.example.ws.TelephoneNumberAlreadyPresentException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof com.example.ws.EmployeeNotFoundException) {
-              throw (com.example.ws.EmployeeNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String deleteTelephoneNumber(java.lang.String id, java.lang.String telephoneNumber) throws java.rmi.RemoteException, com.example.ws.EmptyStringException, com.example.ws.TelephoneNumberNotFoundException, com.example.ws.EmployeeNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[1]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://ws.example.com", "deleteTelephoneNumber"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {id, telephoneNumber});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof com.example.ws.EmptyStringException) {
-              throw (com.example.ws.EmptyStringException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof com.example.ws.TelephoneNumberNotFoundException) {
-              throw (com.example.ws.TelephoneNumberNotFoundException) axisFaultException.detail;
          }
         if (axisFaultException.detail instanceof com.example.ws.EmployeeNotFoundException) {
               throw (com.example.ws.EmployeeNotFoundException) axisFaultException.detail;
@@ -462,54 +484,12 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
 }
     }
 
-    public java.lang.String updateEmployee(java.lang.String id, java.lang.String name, java.lang.String surname, java.lang.String email, java.lang.String department) throws java.rmi.RemoteException, com.example.ws.EmployeeNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[3]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://ws.example.com", "updateEmployee"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {id, name, surname, email, department});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof com.example.ws.EmployeeNotFoundException) {
-              throw (com.example.ws.EmployeeNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
     public java.lang.String insertEmployee(java.lang.String id, java.lang.String name, java.lang.String surname, java.lang.String email, java.lang.String telephoneNumber, java.lang.String department) throws java.rmi.RemoteException, com.example.ws.EmptyStringException, com.example.ws.EmployeeAlreadyPresentException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[4]);
+        _call.setOperation(_operations[3]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -554,7 +534,7 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[5]);
+        _call.setOperation(_operations[4]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -566,6 +546,51 @@ public class AgendaServiceSoapBindingStub extends org.apache.axis.client.Stub im
         setRequestHeaders(_call);
         setAttachments(_call);
  try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {id});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.example.ws.EmptyStringException) {
+              throw (com.example.ws.EmptyStringException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.example.ws.EmployeeNotFoundException) {
+              throw (com.example.ws.EmployeeNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String updateEmployee(java.lang.String id, java.lang.String name, java.lang.String surname, java.lang.String email, java.lang.String department) throws java.rmi.RemoteException, com.example.ws.EmptyStringException, com.example.ws.EmployeeNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[5]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://ws.example.com", "updateEmployee"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {id, name, surname, email, department});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;

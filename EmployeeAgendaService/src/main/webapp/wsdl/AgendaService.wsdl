@@ -4,33 +4,6 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://ws.example.com" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="insertTelephoneNumber">
-    <complexType>
-     <sequence>
-      <element name="id" type="xsd:string"/>
-      <element name="telephoneNumber" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="insertTelephoneNumberResponse">
-    <complexType>
-     <sequence>
-      <element name="insertTelephoneNumberReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <complexType name="EmptyStringException">
-    <sequence/>
-   </complexType>
-   <element name="fault" type="impl:EmptyStringException"/>
-   <complexType name="EmployeeNotFoundException">
-    <sequence/>
-   </complexType>
-   <element name="fault1" type="impl:EmployeeNotFoundException"/>
-   <complexType name="TelephoneNumberAlreadyPresentException">
-    <sequence/>
-   </complexType>
-   <element name="fault2" type="impl:TelephoneNumberAlreadyPresentException"/>
    <element name="deleteTelephoneNumber">
     <complexType>
      <sequence>
@@ -46,10 +19,41 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <complexType name="EmptyStringException">
+    <sequence/>
+   </complexType>
+   <element name="fault" type="impl:EmptyStringException"/>
    <complexType name="TelephoneNumberNotFoundException">
     <sequence/>
    </complexType>
-   <element name="fault3" type="impl:TelephoneNumberNotFoundException"/>
+   <element name="fault1" type="impl:TelephoneNumberNotFoundException"/>
+   <complexType name="EmployeeNotFoundException">
+    <sequence/>
+   </complexType>
+   <element name="fault2" type="impl:EmployeeNotFoundException"/>
+   <complexType name="TelephoneNumberCannotBeDeletedException">
+    <sequence/>
+   </complexType>
+   <element name="fault3" type="impl:TelephoneNumberCannotBeDeletedException"/>
+   <element name="insertTelephoneNumber">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="telephoneNumber" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertTelephoneNumberResponse">
+    <complexType>
+     <sequence>
+      <element name="insertTelephoneNumberReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="TelephoneNumberAlreadyPresentException">
+    <sequence/>
+   </complexType>
+   <element name="fault4" type="impl:TelephoneNumberAlreadyPresentException"/>
    <element name="searchEmployee">
     <complexType>
      <sequence>
@@ -61,24 +65,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="searchEmployeeReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="updateEmployee">
-    <complexType>
-     <sequence>
-      <element name="id" type="xsd:string"/>
-      <element name="name" type="xsd:string"/>
-      <element name="surname" type="xsd:string"/>
-      <element name="email" type="xsd:string"/>
-      <element name="department" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="updateEmployeeResponse">
-    <complexType>
-     <sequence>
-      <element name="updateEmployeeReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -104,7 +90,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <complexType name="EmployeeAlreadyPresentException">
     <sequence/>
    </complexType>
-   <element name="fault4" type="impl:EmployeeAlreadyPresentException"/>
+   <element name="fault5" type="impl:EmployeeAlreadyPresentException"/>
    <element name="deleteEmployee">
     <complexType>
      <sequence>
@@ -119,12 +105,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="updateEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+      <element name="surname" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="department" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="updateEmployeeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
 
    <wsdl:message name="TelephoneNumberAlreadyPresentException">
 
-      <wsdl:part element="impl:fault2" name="fault">
+      <wsdl:part element="impl:fault4" name="fault">
 
       </wsdl:part>
 
@@ -140,7 +144,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:message name="EmployeeAlreadyPresentException">
 
-      <wsdl:part element="impl:fault4" name="fault">
+      <wsdl:part element="impl:fault5" name="fault">
 
       </wsdl:part>
 
@@ -196,7 +200,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:message name="TelephoneNumberNotFoundException">
 
-      <wsdl:part element="impl:fault3" name="fault">
+      <wsdl:part element="impl:fault1" name="fault">
 
       </wsdl:part>
 
@@ -204,7 +208,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:message name="EmployeeNotFoundException">
 
-      <wsdl:part element="impl:fault1" name="fault">
+      <wsdl:part element="impl:fault2" name="fault">
 
       </wsdl:part>
 
@@ -213,6 +217,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="EmptyStringException">
 
       <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="TelephoneNumberCannotBeDeletedException">
+
+      <wsdl:part element="impl:fault3" name="fault">
 
       </wsdl:part>
 
@@ -260,6 +272,34 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="AgendaService">
 
+      <wsdl:operation name="deleteTelephoneNumber">
+
+         <wsdl:input message="impl:deleteTelephoneNumberRequest" name="deleteTelephoneNumberRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteTelephoneNumberResponse" name="deleteTelephoneNumberResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:TelephoneNumberCannotBeDeletedException" name="TelephoneNumberCannotBeDeletedException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:TelephoneNumberNotFoundException" name="TelephoneNumberNotFoundException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
       <wsdl:operation name="insertTelephoneNumber">
 
          <wsdl:input message="impl:insertTelephoneNumberRequest" name="insertTelephoneNumberRequest">
@@ -284,30 +324,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="deleteTelephoneNumber">
-
-         <wsdl:input message="impl:deleteTelephoneNumberRequest" name="deleteTelephoneNumberRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:deleteTelephoneNumberResponse" name="deleteTelephoneNumberResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
-
-       </wsdl:fault>
-
-         <wsdl:fault message="impl:TelephoneNumberNotFoundException" name="TelephoneNumberNotFoundException">
-
-       </wsdl:fault>
-
-         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
       <wsdl:operation name="searchEmployee">
 
          <wsdl:input message="impl:searchEmployeeRequest" name="searchEmployeeRequest">
@@ -321,22 +337,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
 
        </wsdl:fault>
-
-         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="updateEmployee">
-
-         <wsdl:input message="impl:updateEmployeeRequest" name="updateEmployeeRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:updateEmployeeResponse" name="updateEmployeeResponse">
-
-       </wsdl:output>
 
          <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
 
@@ -384,11 +384,73 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="updateEmployee">
+
+         <wsdl:input message="impl:updateEmployeeRequest" name="updateEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateEmployeeResponse" name="updateEmployeeResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EmptyStringException" name="EmptyStringException">
+
+       </wsdl:fault>
+
+         <wsdl:fault message="impl:EmployeeNotFoundException" name="EmployeeNotFoundException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="AgendaServiceSoapBinding" type="impl:AgendaService">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="deleteTelephoneNumber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteTelephoneNumberRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteTelephoneNumberResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmptyStringException">
+
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="TelephoneNumberCannotBeDeletedException">
+
+            <wsdlsoap:fault name="TelephoneNumberCannotBeDeletedException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="TelephoneNumberNotFoundException">
+
+            <wsdlsoap:fault name="TelephoneNumberNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
 
       <wsdl:operation name="insertTelephoneNumber">
 
@@ -426,42 +488,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="deleteTelephoneNumber">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="deleteTelephoneNumberRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="deleteTelephoneNumberResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="EmptyStringException">
-
-            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
-
-         </wsdl:fault>
-
-         <wsdl:fault name="TelephoneNumberNotFoundException">
-
-            <wsdlsoap:fault name="TelephoneNumberNotFoundException" use="literal"/>
-
-         </wsdl:fault>
-
-         <wsdl:fault name="EmployeeNotFoundException">
-
-            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
       <wsdl:operation name="searchEmployee">
 
          <wsdlsoap:operation soapAction=""/>
@@ -483,30 +509,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
             <wsdlsoap:fault name="EmptyStringException" use="literal"/>
 
          </wsdl:fault>
-
-         <wsdl:fault name="EmployeeNotFoundException">
-
-            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="updateEmployee">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="updateEmployeeRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="updateEmployeeResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
 
          <wsdl:fault name="EmployeeNotFoundException">
 
@@ -557,6 +559,36 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="deleteEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EmptyStringException">
+
+            <wsdlsoap:fault name="EmptyStringException" use="literal"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="EmployeeNotFoundException">
+
+            <wsdlsoap:fault name="EmployeeNotFoundException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateEmployeeResponse">
 
             <wsdlsoap:body use="literal"/>
 

@@ -40,7 +40,8 @@ public class Agenda {
 	}
 
 	public static synchronized String deleteTelephoneNumber(String id, String telephoneNumber)
-			throws TelephoneNumberNotFoundException, EmployeeNotFoundException {
+			throws TelephoneNumberNotFoundException, EmployeeNotFoundException,
+			TelephoneNumberCannotBeDeletedException {
 		Employee employee = searchEmployee(id);
 		employee.deleteTelephoneNumber(telephoneNumber);
 		return "Telephone number removed";
@@ -48,12 +49,12 @@ public class Agenda {
 
 	public static synchronized String updateEmployee(String id, String name, String surname, String email,
 			String department) throws EmployeeNotFoundException {
-		Employee employee = searchEmployee(id.trim());
+		Employee employee = searchEmployee(id);
 		
-		employee.setName(name.trim());
-		employee.setSurname(surname.trim());
-		employee.setEmail(email.trim());
-		employee.setDepartment(department.trim());
+		employee.setName(name);
+		employee.setSurname(surname);
+		employee.setEmail(email);
+		employee.setDepartment(department);
 		
 		return "Employee updated: " + employee.toString();
 	}

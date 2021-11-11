@@ -73,13 +73,13 @@ case 13:
         if(!telephoneNumber_2id.equals("")){
          telephoneNumber_2idTemp  = telephoneNumber_2id;
         }
-        java.lang.String insertTelephoneNumber13mtemp = sampleAgendaServiceProxyid.insertTelephoneNumber(id_1idTemp,telephoneNumber_2idTemp);
-if(insertTelephoneNumber13mtemp == null){
+        java.lang.String deleteTelephoneNumber13mtemp = sampleAgendaServiceProxyid.deleteTelephoneNumber(id_1idTemp,telephoneNumber_2idTemp);
+if(deleteTelephoneNumber13mtemp == null){
 %>
-<%=insertTelephoneNumber13mtemp %>
+<%=deleteTelephoneNumber13mtemp %>
 <%
 }else{
-        String tempResultreturnp14 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(insertTelephoneNumber13mtemp));
+        String tempResultreturnp14 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(deleteTelephoneNumber13mtemp));
         %>
         <%= tempResultreturnp14 %>
         <%
@@ -97,13 +97,13 @@ case 20:
         if(!telephoneNumber_4id.equals("")){
          telephoneNumber_4idTemp  = telephoneNumber_4id;
         }
-        java.lang.String deleteTelephoneNumber20mtemp = sampleAgendaServiceProxyid.deleteTelephoneNumber(id_3idTemp,telephoneNumber_4idTemp);
-if(deleteTelephoneNumber20mtemp == null){
+        java.lang.String insertTelephoneNumber20mtemp = sampleAgendaServiceProxyid.insertTelephoneNumber(id_3idTemp,telephoneNumber_4idTemp);
+if(insertTelephoneNumber20mtemp == null){
 %>
-<%=deleteTelephoneNumber20mtemp %>
+<%=insertTelephoneNumber20mtemp %>
 <%
 }else{
-        String tempResultreturnp21 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(deleteTelephoneNumber20mtemp));
+        String tempResultreturnp21 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(insertTelephoneNumber20mtemp));
         %>
         <%= tempResultreturnp21 %>
         <%
@@ -150,83 +150,83 @@ case 32:
         if(!email_9id.equals("")){
          email_9idTemp  = email_9id;
         }
-        String department_10id=  request.getParameter("department43");
-            java.lang.String department_10idTemp = null;
-        if(!department_10id.equals("")){
-         department_10idTemp  = department_10id;
+        String telephoneNumber_10id=  request.getParameter("telephoneNumber43");
+            java.lang.String telephoneNumber_10idTemp = null;
+        if(!telephoneNumber_10id.equals("")){
+         telephoneNumber_10idTemp  = telephoneNumber_10id;
         }
-        java.lang.String updateEmployee32mtemp = sampleAgendaServiceProxyid.updateEmployee(id_6idTemp,name_7idTemp,surname_8idTemp,email_9idTemp,department_10idTemp);
-if(updateEmployee32mtemp == null){
+        String department_11id=  request.getParameter("department45");
+            java.lang.String department_11idTemp = null;
+        if(!department_11id.equals("")){
+         department_11idTemp  = department_11id;
+        }
+        java.lang.String insertEmployee32mtemp = sampleAgendaServiceProxyid.insertEmployee(id_6idTemp,name_7idTemp,surname_8idTemp,email_9idTemp,telephoneNumber_10idTemp,department_11idTemp);
+if(insertEmployee32mtemp == null){
 %>
-<%=updateEmployee32mtemp %>
+<%=insertEmployee32mtemp %>
 <%
 }else{
-        String tempResultreturnp33 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(updateEmployee32mtemp));
+        String tempResultreturnp33 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(insertEmployee32mtemp));
         %>
         <%= tempResultreturnp33 %>
         <%
 }
 break;
-case 45:
+case 47:
         gotMethod = true;
-        String id_11id=  request.getParameter("id48");
-            java.lang.String id_11idTemp = null;
-        if(!id_11id.equals("")){
-         id_11idTemp  = id_11id;
+        String id_12id=  request.getParameter("id50");
+            java.lang.String id_12idTemp = null;
+        if(!id_12id.equals("")){
+         id_12idTemp  = id_12id;
         }
-        String name_12id=  request.getParameter("name50");
-            java.lang.String name_12idTemp = null;
-        if(!name_12id.equals("")){
-         name_12idTemp  = name_12id;
-        }
-        String surname_13id=  request.getParameter("surname52");
-            java.lang.String surname_13idTemp = null;
-        if(!surname_13id.equals("")){
-         surname_13idTemp  = surname_13id;
-        }
-        String email_14id=  request.getParameter("email54");
-            java.lang.String email_14idTemp = null;
-        if(!email_14id.equals("")){
-         email_14idTemp  = email_14id;
-        }
-        String telephoneNumber_15id=  request.getParameter("telephoneNumber56");
-            java.lang.String telephoneNumber_15idTemp = null;
-        if(!telephoneNumber_15id.equals("")){
-         telephoneNumber_15idTemp  = telephoneNumber_15id;
-        }
-        String department_16id=  request.getParameter("department58");
-            java.lang.String department_16idTemp = null;
-        if(!department_16id.equals("")){
-         department_16idTemp  = department_16id;
-        }
-        java.lang.String insertEmployee45mtemp = sampleAgendaServiceProxyid.insertEmployee(id_11idTemp,name_12idTemp,surname_13idTemp,email_14idTemp,telephoneNumber_15idTemp,department_16idTemp);
-if(insertEmployee45mtemp == null){
+        java.lang.String deleteEmployee47mtemp = sampleAgendaServiceProxyid.deleteEmployee(id_12idTemp);
+if(deleteEmployee47mtemp == null){
 %>
-<%=insertEmployee45mtemp %>
+<%=deleteEmployee47mtemp %>
 <%
 }else{
-        String tempResultreturnp46 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(insertEmployee45mtemp));
+        String tempResultreturnp48 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(deleteEmployee47mtemp));
         %>
-        <%= tempResultreturnp46 %>
+        <%= tempResultreturnp48 %>
         <%
 }
 break;
-case 60:
+case 52:
         gotMethod = true;
-        String id_17id=  request.getParameter("id63");
-            java.lang.String id_17idTemp = null;
-        if(!id_17id.equals("")){
-         id_17idTemp  = id_17id;
+        String id_13id=  request.getParameter("id55");
+            java.lang.String id_13idTemp = null;
+        if(!id_13id.equals("")){
+         id_13idTemp  = id_13id;
         }
-        java.lang.String deleteEmployee60mtemp = sampleAgendaServiceProxyid.deleteEmployee(id_17idTemp);
-if(deleteEmployee60mtemp == null){
+        String name_14id=  request.getParameter("name57");
+            java.lang.String name_14idTemp = null;
+        if(!name_14id.equals("")){
+         name_14idTemp  = name_14id;
+        }
+        String surname_15id=  request.getParameter("surname59");
+            java.lang.String surname_15idTemp = null;
+        if(!surname_15id.equals("")){
+         surname_15idTemp  = surname_15id;
+        }
+        String email_16id=  request.getParameter("email61");
+            java.lang.String email_16idTemp = null;
+        if(!email_16id.equals("")){
+         email_16idTemp  = email_16id;
+        }
+        String department_17id=  request.getParameter("department63");
+            java.lang.String department_17idTemp = null;
+        if(!department_17id.equals("")){
+         department_17idTemp  = department_17id;
+        }
+        java.lang.String updateEmployee52mtemp = sampleAgendaServiceProxyid.updateEmployee(id_13idTemp,name_14idTemp,surname_15idTemp,email_16idTemp,department_17idTemp);
+if(updateEmployee52mtemp == null){
 %>
-<%=deleteEmployee60mtemp %>
+<%=updateEmployee52mtemp %>
 <%
 }else{
-        String tempResultreturnp61 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(deleteEmployee60mtemp));
+        String tempResultreturnp53 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(updateEmployee52mtemp));
         %>
-        <%= tempResultreturnp61 %>
+        <%= tempResultreturnp53 %>
         <%
 }
 break;
