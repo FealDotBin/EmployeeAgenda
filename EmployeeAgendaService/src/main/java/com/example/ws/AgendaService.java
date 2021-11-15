@@ -1,6 +1,22 @@
 package com.example.ws;
 
-public class AgendaManageService {
+public class AgendaService {
+	/**
+	 * Cerca e restituisce una stringa rappresentativa dell'impiegato con indentificativo id
+	 * @param id Identificativo dell'impiegato che si intende cercare
+	 * @return stringa rappresentativa dell'impiegato con indentificativo id
+	 * @throws EmployeeNotFoundException Lanciata quando l'impiegato con identificativo id non è presente
+	 * nell'agenda
+	 * @throws EmptyStringException Lanciata quando l'indentificativo passato in input è una stringa vuota
+	 * o è null
+	 */
+	public String searchEmployee(String id) throws EmployeeNotFoundException, EmptyStringException {
+		id = InputValidator.sanitizeString(id, "id");
+
+		Employee employee = Agenda.searchEmployee(id);
+		return employee.toString();
+	}
+	
 	/**
 	 * Crea e inserisce un nuovo impiegato nell'agenda
 	 * @param id Identificativo dell'impiegato che si intende inserire
@@ -26,7 +42,8 @@ public class AgendaManageService {
 		department = InputValidator.sanitizeString(department, "department");
 
 		Employee employee = new Employee(id, name, surname, email, telephoneNumber, department);
-		return Agenda.insertEmployee(employee);
+		Agenda.insertEmployee(employee);
+		return "Employee inserted";
 	}
 
 	/**
@@ -42,7 +59,8 @@ public class AgendaManageService {
 	public String deleteEmployee(String id) throws EmployeeNotFoundException, EmptyStringException {
 		id = InputValidator.sanitizeString(id, "id");
 
-		return Agenda.deleteEmployee(id);
+		Agenda.deleteEmployee(id);
+		return "Employee removed";
 	}
 
 	/**
@@ -66,7 +84,8 @@ public class AgendaManageService {
 		id = InputValidator.sanitizeString(id, "id");
 		telephoneNumber = InputValidator.sanitizeString(telephoneNumber, "telephoneNumber");
 
-		return Agenda.insertTelephoneNumber(id, telephoneNumber);
+		Agenda.insertTelephoneNumber(id, telephoneNumber);
+		return "Telephone number added";
 	}
 	/**
 	 * Elimina il numero di telefono telephoneNumber all'interno della lista dei recapiti
@@ -95,7 +114,8 @@ public class AgendaManageService {
 		id = InputValidator.sanitizeString(id, "id");
 		telephoneNumber = InputValidator.sanitizeString(telephoneNumber, "telephoneNumber");
 
-		return Agenda.deleteTelephoneNumber(id, telephoneNumber);
+		Agenda.deleteTelephoneNumber(id, telephoneNumber);
+		return "Telephone number removed";
 	}
 	/**
 	 * Aggiorna il valori dei campi dell'impiegato con identificativo pari ad id 
@@ -120,8 +140,8 @@ public class AgendaManageService {
 		surname = InputValidator.sanitizeStringCanBeNull(surname);
 		email = InputValidator.sanitizeStringCanBeNull(email);
 		department = InputValidator.sanitizeStringCanBeNull(department);
-		
-		return Agenda.updateEmployee(id, name, surname, email, department);
-	}
 
+		Employee employee = Agenda.updateEmployee(id, name, surname, email, department);
+		return "Employee updated: " + employee.toString();
+	}
 }

@@ -20,6 +20,31 @@
       <parameter name="className" value="com.example.ws.AgendaServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="AgendaService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="insertTelephoneNumber" qname="operNS:insertTelephoneNumber" xmlns:operNS="http://ws.example.com" returnQName="retNS:insertTelephoneNumberReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:telephoneNumber" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="EmptyStringException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
+        <fault name="TelephoneNumberAlreadyPresentException" qname="fns:fault2" xmlns:fns="http://ws.example.com" class="com.example.ws.TelephoneNumberAlreadyPresentException" type="tns:TelephoneNumberAlreadyPresentException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmployeeNotFoundException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
+      </operation>
+      <operation name="deleteTelephoneNumber" qname="operNS:deleteTelephoneNumber" xmlns:operNS="http://ws.example.com" returnQName="retNS:deleteTelephoneNumberReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:telephoneNumber" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="EmptyStringException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
+        <fault name="TelephoneNumberCannotBeDeletedException" qname="fns:fault4" xmlns:fns="http://ws.example.com" class="com.example.ws.TelephoneNumberCannotBeDeletedException" type="tns:TelephoneNumberCannotBeDeletedException" xmlns:tns="http://ws.example.com"/>
+        <fault name="TelephoneNumberNotFoundException" qname="fns:fault3" xmlns:fns="http://ws.example.com" class="com.example.ws.TelephoneNumberNotFoundException" type="tns:TelephoneNumberNotFoundException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmployeeNotFoundException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
+      </operation>
+      <operation name="searchEmployee" qname="operNS:searchEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:searchEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="EmptyStringException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmployeeNotFoundException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
+      </operation>
+      <operation name="deleteEmployee" qname="operNS:deleteEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:deleteEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="EmptyStringException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmployeeNotFoundException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
+      </operation>
       <operation name="insertEmployee" qname="operNS:insertEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:insertEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:name" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -27,13 +52,8 @@
         <parameter qname="pns:email" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:telephoneNumber" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:department" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="EmptyStringException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
-        <fault name="EmployeeAlreadyPresentException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeAlreadyPresentException" type="tns:EmployeeAlreadyPresentException" xmlns:tns="http://ws.example.com"/>
-      </operation>
-      <operation name="searchEmployee" qname="operNS:searchEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:searchEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="EmptyStringException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
-        <fault name="EmployeeNotFoundException" qname="fns:fault2" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmptyStringException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmployeeAlreadyPresentException" qname="fns:fault5" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeAlreadyPresentException" type="tns:EmployeeAlreadyPresentException" xmlns:tns="http://ws.example.com"/>
       </operation>
       <operation name="updateEmployee" qname="operNS:updateEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:updateEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -41,30 +61,10 @@
         <parameter qname="pns:surname" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:email" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:department" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="EmptyStringException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
-        <fault name="EmployeeNotFoundException" qname="fns:fault2" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmptyStringException" qname="fns:fault" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
+        <fault name="EmployeeNotFoundException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
       </operation>
-      <operation name="deleteEmployee" qname="operNS:deleteEmployee" xmlns:operNS="http://ws.example.com" returnQName="retNS:deleteEmployeeReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="EmptyStringException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
-        <fault name="EmployeeNotFoundException" qname="fns:fault2" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
-      </operation>
-      <operation name="deleteTelephoneNumber" qname="operNS:deleteTelephoneNumber" xmlns:operNS="http://ws.example.com" returnQName="retNS:deleteTelephoneNumberReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:telephoneNumber" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="EmptyStringException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
-        <fault name="TelephoneNumberCannotBeDeletedException" qname="fns:fault4" xmlns:fns="http://ws.example.com" class="com.example.ws.TelephoneNumberCannotBeDeletedException" type="tns:TelephoneNumberCannotBeDeletedException" xmlns:tns="http://ws.example.com"/>
-        <fault name="TelephoneNumberNotFoundException" qname="fns:fault3" xmlns:fns="http://ws.example.com" class="com.example.ws.TelephoneNumberNotFoundException" type="tns:TelephoneNumberNotFoundException" xmlns:tns="http://ws.example.com"/>
-        <fault name="EmployeeNotFoundException" qname="fns:fault2" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
-      </operation>
-      <operation name="insertTelephoneNumber" qname="operNS:insertTelephoneNumber" xmlns:operNS="http://ws.example.com" returnQName="retNS:insertTelephoneNumberReturn" xmlns:retNS="http://ws.example.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:id" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:telephoneNumber" xmlns:pns="http://ws.example.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="EmptyStringException" qname="fns:fault1" xmlns:fns="http://ws.example.com" class="com.example.ws.EmptyStringException" type="tns:EmptyStringException" xmlns:tns="http://ws.example.com"/>
-        <fault name="TelephoneNumberAlreadyPresentException" qname="fns:fault5" xmlns:fns="http://ws.example.com" class="com.example.ws.TelephoneNumberAlreadyPresentException" type="tns:TelephoneNumberAlreadyPresentException" xmlns:tns="http://ws.example.com"/>
-        <fault name="EmployeeNotFoundException" qname="fns:fault2" xmlns:fns="http://ws.example.com" class="com.example.ws.EmployeeNotFoundException" type="tns:EmployeeNotFoundException" xmlns:tns="http://ws.example.com"/>
-      </operation>
-      <parameter name="allowedMethods" value="insertEmployee updateEmployee insertTelephoneNumber searchEmployee deleteEmployee deleteTelephoneNumber"/>
+      <parameter name="allowedMethods" value="insertEmployee updateEmployee insertTelephoneNumber deleteTelephoneNumber searchEmployee deleteEmployee"/>
 
       <typeMapping
         xmlns:ns="http://ws.example.com"
